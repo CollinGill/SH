@@ -1,10 +1,12 @@
 import React from "react";
-import Button from "@mui/material/Button";
+import { Button, Box } from "@mui/material";
 
 function Login() {
-    return (
-        <Button>LOGIN</Button>
-    );
+  return (
+    <Box>
+      <Button>LOGIN</Button>
+    </Box>
+  );
 }
 
 export default Login;
