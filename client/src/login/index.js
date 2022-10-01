@@ -1,12 +1,13 @@
 import React from "react";
 import { Button, Box } from "@mui/material";
+import Navbar from "../components/Navbar";
 
-function Login() {
+const Login = () => {
   return (
-    <Box>
-      <Button>LOGIN</Button>
-    </Box>
+    <div>
+      <Navbar />
+    </div>
   );
-}
+};
 
 export default Login;
