@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import Login from "./login/index";
 import About from "./about/index";
+import Profile from "./profile/index";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
@@ -39,6 +40,15 @@ const router = createBrowserRouter([
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
         <About />
+      </ThemeProvider>
+    ),
+  },
+  {
+    path: "/profile",
+    element: (
+      <ThemeProvider theme={darkTheme}>
+        <CssBaseline />
+        <Profile />
       </ThemeProvider>
     ),
   },

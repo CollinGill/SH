@@ -1,12 +1,15 @@
 import React from "react";
-import AccountCircle from "@mui/icons-material/AccountCircle";
-import Key from "@mui/icons-material/Key";
-
 import Navbar from "../components/Navbar";
-import { Box } from "@mui/system";
-import { Button, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  // Temp until OAUTh
+  const navigate = useNavigate();
+  const navToProfile = () => {
+    navigate("/profile");
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -35,6 +38,7 @@ const Login = () => {
             variant="contained"
             size="large"
             onSubmit={handleSubmit}
+            onClick={navToProfile}
           >
             <Typography
               noWrap
