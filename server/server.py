@@ -1,5 +1,6 @@
 from flask import Flask
 import os 
+from dotenv import load_dotenv
 import json
 import time
 import spotipy
@@ -12,14 +13,12 @@ app = Flask(__name__)
 # "source venv/bin/activate"
 # "pip3 install Flask"
 # "pip3 install spotipy"
-# export SPOTIPY_CLIENT_ID="634a67c951ac4a4ba67139010e14d8df"
-# export SPOTIPY_CLIENT_SECRET="85b1fbd26b1f4a9f8744d3feb3bb1b00"
-# export SPOTIPY_REDIRECT_UPI="https://google.com"
 
+load_dotenv()
 
-spotify_client_id = os.environ['SPOTIPY_CLIENT_ID']
-spotify_secret = os.environ['SPOTIPY_CLIENT_SECRET']
-spotify_redirect_uri = os.environ['SPOTIPY_REDIRECT_UPI']
+spotify_client_id = os.environ.get('SPOTIPY_CLIENT_ID')
+spotify_secret = os.environ.get('SPOTIPY_CLIENT_SECRET')
+spotify_redirect_uri = os.environ.get('SPOTIPY_REDIRECT_UPI')
 
 scope = "user-top-read"
 
@@ -29,11 +28,11 @@ oauth_object = spotipy.SpotifyOAuth(client_id=spotify_client_id,
                                     scope=scope)
 
 
-token_dict = oauth_object.get_cached_token()
+token_dict = oauth_object.get_access_token()
 
 token = token_dict['access_token']  
 
-spotify_object = spotipy.Spotify(auth=token)                                
+spotify_object = spotipy.Spotify(auth=token)
 
 current = spotify_object.current_user_top_tracks()
 currentTwo = spotify_object.current_user_top_artists()
