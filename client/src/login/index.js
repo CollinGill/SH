@@ -4,16 +4,15 @@ import Key from "@mui/icons-material/Key";
 
 import Navbar from "../components/Navbar";
 import { Box } from "@mui/system";
-import {
-  Button,
-  FormControl,
-  Grid,
-  Input,
-  InputAdornment,
-  InputLabel,
-} from "@mui/material";
+import { Button, Typography } from "@mui/material";
 
 const Login = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    // TODO: backend connection
+  };
+
   return (
     <div>
       <Navbar />
@@ -23,52 +22,35 @@ const Login = () => {
         border={2}
         borderColor={"black"}
         borderRadius={16}
+        display={"flex"}
+        alignItems={"center"}
+        justifyContent={"center"}
         width={400}
         height={500}
         margin={"auto"}
       >
-        <form>
-          <Grid
-            container
-            spacing={3}
-            paddingLeft={10}
-            paddingTop={10}
-            direction={"column"}
+        <Box>
+          <Button
+            type="submit"
+            variant="contained"
+            size="large"
+            onSubmit={handleSubmit}
           >
-            <Grid item xs>
-              <FormControl>
-                <InputLabel>Username / Email</InputLabel>
-                <Input
-                  id={"uname"}
-                  startAdornment={
-                    <InputAdornment position={"start"}>
-                      <AccountCircle />
-                    </InputAdornment>
-                  }
-                />
-              </FormControl>
-            </Grid>
-            <Grid item xs>
-              <FormControl>
-                <InputLabel>Password</InputLabel>
-                <Input
-                  id={"uname"}
-                  type={"password"}
-                  startAdornment={
-                    <InputAdornment position={"start"}>
-                      <Key />
-                    </InputAdornment>
-                  }
-                />
-              </FormControl>
-            </Grid>
-            <Grid item xs>
-              <Button type="submit" variant="contained">
-                Login
-              </Button>
-            </Grid>
-          </Grid>
-        </form>
+            <Typography
+              noWrap
+              sx={{
+                display: { xs: "none", md: "flex" },
+                fontFamily: "monospace",
+                fontWeight: 700,
+                letterSpacing: ".3rem",
+                color: "inherit",
+                textDecoration: "none",
+              }}
+            >
+              Login
+            </Typography>
+          </Button>
+        </Box>
       </Box>
     </div>
   );
