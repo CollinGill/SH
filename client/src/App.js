@@ -29,7 +29,24 @@ const App = () => {
             textDecoration: "none",
           }}
         >
-          Spotify Analytics
+          SH - Spotify (H)Analytics
+        </Typography>
+      </Box>
+      <Box height={100} />
+      <Box display={"flex"} alignItems={"center"} justifyContent={"center"}>
+        <Typography
+          variant="h4"
+          noWrap
+          sx={{
+            display: { xs: "none", md: "flex" },
+            fontFamily: "monospace",
+            fontWeight: 500,
+            letterSpacing: ".01rem",
+            color: "inherit",
+            textDecoration: "none",
+          }}
+        >
+          Hear your inner data
         </Typography>
       </Box>
     </div>
